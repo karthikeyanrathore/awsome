@@ -1,0 +1,31 @@
+ML song
+
+BEST auth system .
+- Login/Logoff 
+- Private ec2  -- > (storing inf) database (ssh , tcp , rdp access options) (to prevent attacks)
+- Public ec2 --> frontend (public url)
+
+- connect private ec2 - via vpc end point - s3 bucket (for updation of database version) (future proof) (2.0 ---> 3.0) (OPTIONAL)
+- for database connect private ec2 - RDS (vis vpc end pt)
+
+study
+- Load balancer (Application Load Balancer)
+- data replication availabily 
+- same region in-case A zone server (7 data center) if 1 data centerbreaks down then will it replicate to other ? (might be default)
+- same region in-case A zone center breaks down then will it replicate to B , C ? ...
+
+
+
+ML song classify
+
+
+
+
+
+
+
+
+
+
+
+
