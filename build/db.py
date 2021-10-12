@@ -30,16 +30,15 @@ class database(object):
     data = cursor.fetchone()
     print ("Database version : %s " % data)
   
-  def close(self):
+  def close(self, cursor):
     self.db.close()
-
+    cursor.close()
 
 '''
 x = database("localhost" , "root", 3306, "data")
 cursor = x.connect()
 x.version(cursor)
 x.insert("karthikeyan", "sys" , cursor)
+x.close(cursor)
 '''
-
-
 

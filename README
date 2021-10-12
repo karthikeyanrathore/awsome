@@ -1,11 +1,5 @@
 ML song
 
-Database
-- create database data;
-- use data;
-- source build/schema.sql
-- show tables;
-
 
 
 BEST auth system .
@@ -28,10 +22,18 @@ ML song classify
 
 
 
+Ignore
+- mysql -h database-1.cfy5b4oaqkti.us-east-2.rds.amazonaws.com  -P 3306 -u admin -p
 
+Access denie error
+- https://askubuntu.com/questions/766334/cant-login-as-mysql-user-root-from-normal-user-account-in-ubuntu-16-04
 
+Database
+- create database data;
+- use data;
+- source build/schema.sql
+- show tables;
 
-mysql -h database-1.cfy5b4oaqkti.us-east-2.rds.amazonaws.com  -P 3306 -u admin -p
 
 
 
