@@ -1,6 +1,9 @@
-DROP TABLE IF EXISTS user;
-CREATE TABLE user (
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  username TEXT NOT NULL,
-  password TEXT NOT NULL
+create database data;
+use data;
+
+drop table if exists user;
+create table user (
+  id integer auto_increment primary key,
+  username varchar(255) unique not null,
+  password varchar(255) not null
 );

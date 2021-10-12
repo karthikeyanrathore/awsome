@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import pymysql as py
+from werkzeug.security import check_password_hash, generate_password_hash
 #db = py.connect(host="localhost",user="root", port=3306)
 
 class database(object):
@@ -12,12 +13,14 @@ class database(object):
   
   def insert(self, username, password, cursor):
     try:
-      cursor.execute("INSERT INTO user (username,password) VALUES (%s,%s)", (username,password))
+      cursor.execute("INSERT INTO user (username,password) VALUES (%s,%s)", (username,generate_password_hash(password)))
       self.db.commit()
       print("done")
+      return 1
     except:
       print("fail")
       self.db.rollback()
+      return 0
  
   def exists(self, username):
     pass
@@ -34,11 +37,4 @@ class database(object):
     self.db.close()
     cursor.close()
 
-'''
-x = database("localhost" , "root", 3306, "data")
-cursor = x.connect()
-x.version(cursor)
-x.insert("karthikeyan", "sys" , cursor)
-x.close(cursor)
-'''
 
