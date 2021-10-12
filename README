@@ -1,5 +1,13 @@
 ML song
 
+Database
+- create database data;
+- use data;
+- source build/schema.sql
+- show tables;
+
+
+
 BEST auth system .
 - Login/Logoff 
 - Private ec2  -- > (storing inf) database (ssh , tcp , rdp access options) (to prevent attacks)
