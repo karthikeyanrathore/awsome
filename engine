@@ -1,5 +1,11 @@
 deploy on amazon ubuntu. using nginx & gunicorn
 
+Test nginx
+sudo apt-get install nginx
+
+
+
+
 cd build
 python3 -m venv vnv
 pip3 install flask

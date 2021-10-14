@@ -22,8 +22,11 @@ class database(object):
       self.db.rollback()
       return 0
  
-  def exists(self, username):
-    pass
+  def exists(self, cursor, username):
+    ex = cursor.execute("SELECT username FROM user WHERE username = %s", (username))
+    if ex:
+      return 1
+    return 0
 
   def auth(self, username, password):
     pass
