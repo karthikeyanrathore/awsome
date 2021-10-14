@@ -8,17 +8,17 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <div class="container-fluid">
-  <a class="navbar-brand" href="{{url_for('index')}}">AWS-AI</a>
+<a class="navbar-brand" href="{{url_for('index')}}">AWS-AI</a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav">
 <li class="nav-item">
-  <a class="nav-link" href="{{url_for('register')}}">register</a>
+<a class="nav-link" href="{{url_for('register')}}">register</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" href="{{url_for('login')}}">login</a>
+<a class="nav-link" href="{{url_for('login')}}">login</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="#">delete</a>
@@ -33,11 +33,11 @@
 <div class="container h-100 p-5">
 <figure class="text-center">
 <h3>
-<mark>AWS-AI Register</mark>
+<mark>AWS-AI Login</mark>
 </h3>
 </figure>
 
-  <main class="container">
+<main class="container">
 <div class="bg-white p-7 rounded">
 <div class="row h-100 justify-content-center align-items-center">
 <div class="col-50 col-md-20 col-lg-5">
@@ -49,7 +49,7 @@
 {% endif %}
 
 
-<form method="post"action="{{url_for('register')}}" >
+<form method="post"action="{{url_for('login')}}" >
 <div class="form-group w-100">
 <label for="username" class="text-dark">Name</label>
 <input name="username" class="form-control" id="username">

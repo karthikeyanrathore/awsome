@@ -28,8 +28,17 @@ class database(object):
       return 1
     return 0
 
-  def auth(self, username, password):
-    pass
+  def auth(self, cursor, username, password):
+    cursor.execute("SELECT * FROM user WHERE username = %s", (username))
+    user = None
+    user = cursor.fetchone()
+    if user is not None:
+      if check_password_hash(user[2], password):
+        return 1, user
+      else:
+        return -1, user
+    else:
+      return 0, user
     
   def version(self, cursor):
     cursor.execute("SELECT VERSION()")
