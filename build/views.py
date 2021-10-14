@@ -37,7 +37,7 @@ def register():
       error = "username already exists in the database"
     if error is None:
       if db.insert(username, password, cursor):
-        return "success"
+        return redirect(url_for("login"))
       else:
         error = "fail"
   print(error)
