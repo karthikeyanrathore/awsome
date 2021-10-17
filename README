@@ -29,8 +29,8 @@ Access denie error
 - https://askubuntu.com/questions/766334/cant-login-as-mysql-user-root-from-normal-user-account-in-ubuntu-16-04
 
 Database
-- create database data;
-- use data;
+- create database data; (ignore/Added in schmea.sql)
+- use data; (ignore/Added in schema.sql)
 - source build/schema.sql
 - show tables;
 
