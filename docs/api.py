@@ -19,7 +19,7 @@ sad = sp.playlist_tracks("spotify:playlist:37i9dQZF1DX7qK8ma5wgG1", fields= "ite
 # happy
 #https://open.spotify.com/playlist/1llkez7kiZtBeOw5UjFlJq?si=4a7282d5a9df49a1
 happy = sp.playlist_tracks("spotify:playlist:1llkez7kiZtBeOw5UjFlJq", fields= "items.track.id, total, items.track.name, items.track.album.artists.name", limit=10)
-#print(json.dumps(happy,  indent=5))
+print(json.dumps(happy,  indent=5))
 
 
 

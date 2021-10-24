@@ -4,8 +4,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 #db = py.connect(host="localhost",user="root", port=3306)
 
 class database(object):
-  def __init__(self , host , user , port, prime_db):
-    self.db = py.connect(host=host,user=user, port=port, db=prime_db)
+  def __init__(self , host , user , port, prime_db, password):
+    self.db = py.connect(host=host,user=user, port=port, db=prime_db, password=password)
   
   def connect(self):
     cursor = self.db.cursor()
@@ -39,7 +39,21 @@ class database(object):
         return -1, user
     else:
       return 0, user
-    
+  
+  @staticmethod
+  def get_username(cursor, id):
+    try:
+      cursor.execute("SELECT * FROM user WHERE id = %s", (str(id)))
+    except TypeError:
+      return None
+    user= None
+    user= cursor.fetchone()
+    if user is not None:
+      return user[1]
+    else:
+      return user
+
+
   def version(self, cursor):
     cursor.execute("SELECT VERSION()")
     data = cursor.fetchone()
