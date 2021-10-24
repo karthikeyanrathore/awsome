@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from build import app
 import config
+import json
 from build.db import database
 from flask import request
 from flask import render_template 
@@ -100,4 +101,35 @@ def home():
     return redirect(url_for("login"))
 
 
+@app.route("/home/happy", methods=['POST', 'GET'])
+def get_happy():
+  if "user_id" in session:
+    f = open("build/happy_data.json")
+    data = json.load(f)
+    for x in data['items']:
+      for i in x['track']['album']['artists']:
+        pass
+        # artist name print(i['name'])
+      # song name print(x['track']['name'])
+    # song_id print(x['track']['id'])
+    return render_template("tracks.html", data=data)
+  else:
+    return redirect(url_for("login"))
+
+@app.route("/home/sad", methods=['POST', 'GET'])
+def get_sad():
+  if "user_id" in session:
+    f = open("build/sad_data.json")
+    data = json.load(f)
+    for x in data['items']:
+      for i in x['track']['album']['artists']:
+        pass
+        # artist name print(i['name'])
+      # song name print(x['track']['name'])
+    # song_id print(x['track']['id'])
+    
+      print(x['track']['id'])
+    return render_template("tracks.html", data=data)
+  else:
+    return redirect(url_for("login"))
 
