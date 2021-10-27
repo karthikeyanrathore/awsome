@@ -12,7 +12,6 @@ def retrieve_sad():
 def retrieve_happy():
   happy = sp.playlist_tracks("spotify:playlist:1llkez7kiZtBeOw5UjFlJq", fields= "items.track.id, total, items.track.name, items.track.album.artists.name", limit=10)
   return happy
-
 with open('happy_data.json', 'w') as f:
   happy = retrieve_happy()
   json.dump(happy, f)
@@ -21,7 +20,7 @@ with open('sad_data.json', 'w') as f:
   sad = retrieve_sad()
   json.dump(sad, f)
 
-
+print(json.dumps(retrieve_sad(), indent=5))
 
 
 
