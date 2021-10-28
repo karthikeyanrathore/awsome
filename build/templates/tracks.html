@@ -28,7 +28,7 @@
 <br>
 <table class="table">
 <thead class="thead-dark">
-<tr>
+<tr class="table-active">
 <th scope="col">Artist Name</th>
 <th scope="col">Song Name</th>
 <th scope="col">Song</th>
@@ -39,14 +39,14 @@
 {% for x in data['items'] %}
 {% if x['track']['album']['artists'] | length == 1 %}
 {% for y in x['track']['album']['artists'] %}
-<td> {{ y['name']}}</td>
-<td>{{x['track']['name']}}</td>
+<td class="table-active"> {{ y['name']}}</td>
+<td class="table-active">{{x['track']['name']}}</td>
 {% endfor %}
 {% else %}
-<td> {{x['track']['album']['artists'][0]['name']}}</td>
-<td>{{x['track']['name']}}</td>
+<td class="table-active"> {{x['track']['album']['artists'][0]['name']}}</td>
+<td class="table-active">{{x['track']['name']}}</td>
 {% endif %}
-<td><a href="https://open.spotify.com/track/{{ x['track']['id']}}" class="link-primary">Song Link</a></td>
+<td class="table-active"><a href="https://open.spotify.com/track/{{ x['track']['id']}}" class="link-primary">Song Link</a></td>
 </tr>
 
 {% endfor %}
