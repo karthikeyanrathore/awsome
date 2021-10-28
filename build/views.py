@@ -104,7 +104,7 @@ def home():
 @app.route("/home/happy", methods=['POST', 'GET'])
 def get_happy():
   if "user_id" in session:
-    f = open("build/happy_data.json")
+    f = open("build/data/happy_data.json")
     data = json.load(f)
     for x in data['items']:
       for i in x['track']['album']['artists']:
@@ -119,16 +119,34 @@ def get_happy():
 @app.route("/home/sad", methods=['POST', 'GET'])
 def get_sad():
   if "user_id" in session:
-    f = open("build/sad_data.json")
+    f = open("build/data/sad_data.json")
     data = json.load(f)
     for x in data['items']:
       for i in x['track']['album']['artists']:
         pass
+      #print(x)
         # artist name print(i['name'])
       # song name print(x['track']['name'])
     # song_id print(x['track']['id'])
     
-      print(x['track']['id'])
+      #print(x['track']['id'])
+    return render_template("tracks.html", data=data)
+  else:
+    return redirect(url_for("login"))
+
+@app.route("/home/neutral", methods=['POST', 'GET'])
+def get_neutral():
+  if "user_id" in session:
+    f = open("build/data/neutral_data.json")
+    data = json.load(f)
+    for x in data['items']:
+      #print(len(x['track']['album']['artists']))
+      #print(" ")
+      pass
+        # artist name print(i['name'])
+      # song name print(x['track']['name'])
+    # song_id print(x['track']['id'])
+    
     return render_template("tracks.html", data=data)
   else:
     return redirect(url_for("login"))

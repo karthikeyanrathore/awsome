@@ -37,13 +37,13 @@
 <tbody>
 
 {% for x in data['items'] %}
+{% if x['track']['album']['artists'] | length == 1 %}
 {% for y in x['track']['album']['artists'] %}
-<tr>
 <td> {{ y['name']}}</td>
+<td>{{x['track']['name']}}</td>
 {% endfor %}
-{% if x['track']['name'] is  none %}
-<td> null </td>
 {% else %}
+<td> {{x['track']['album']['artists'][0]['name']}}</td>
 <td>{{x['track']['name']}}</td>
 {% endif %}
 <td><a href="https://open.spotify.com/track/{{ x['track']['id']}}" class="link-primary">Song Link</a></td>
