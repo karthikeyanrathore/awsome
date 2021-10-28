@@ -35,7 +35,22 @@
 </tr>
 </thead>
 <tbody>
+{% if counter == 1 %}
+<h1 class="text-center"><strong>Model Predicted: Happy Playlist</strong> </h1>
+{% endif %}
 
+
+{% if counter == 2 %}
+<h1 class="text-center"> <strong>Model Predicted: Sad Playlist</strong> </h1>
+{% endif %}
+
+{% if counter == 3 %}
+<h1 class="text-center"> <strong>Model Predicted: Neutral Playlist</strong> </h1>
+{% endif %}
+
+
+
+<br>
 {% for x in data['items'] %}
 {% if x['track']['album']['artists'] | length == 1 %}
 {% for y in x['track']['album']['artists'] %}
