@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
 from build import app
 import config
+import os
 import json
 from build.db import database
+from build.predict import Predict
 from flask import request
 from flask import render_template 
 from flask import session 
 from flask import redirect, url_for 
 
+UPLOAD_FOLDER = 'docs/images'
 LOCALHOST = config.LOCALHOST
 USER = config.USER
 PORT = config.PORT
 DATABASE = config.DATABASE
 PASSWORD = config.PASSWORD
 app.secret_key = config.secret_key
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 # connect to database
 def connection():
@@ -85,9 +90,25 @@ def logout():
   session.pop("user_id" , None)
   return redirect(url_for("index"))
 
-@app.route("/home")
+@app.route("/home", methods=["GET", "POST"])
 def home():
   db , cursor = connection()
+  if request.method == "POST":
+    image = request.files['img']
+    path = os.path.join(app.config['UPLOAD_FOLDER'], image.filename)
+    image.save(path)
+    emo = Predict(path).get_emotion()
+    if emo is None:
+      return "valid image is required"
+    print(emo)
+    if int(emo) == 3:
+      return redirect(url_for("get_happy"))
+    elif int(emo) == 4:
+      return redirect(url_for("get_sad"))
+    elif int(emo) == 6:
+      return redirect(url_for("get_neutral"))
+    else:
+      return "other emotion %d" % (int(emo))
   if "user_id" in session:
     id = session['user_id']
     # get user-name from database
@@ -99,7 +120,6 @@ def home():
       return "error"
   else:
     return redirect(url_for("login"))
-
 
 @app.route("/home/happy", methods=['POST', 'GET'])
 def get_happy():
