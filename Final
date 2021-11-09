@@ -10,8 +10,8 @@ steps to deploy
 - Private Route Table -> edit subnet association -> add ptivate-subnet-1 & 2.
 
 
-- EC2: Public-EC2 (Ubuntu Server 20.04 LTS (HVM), SSD Volume Type) -> MY-VPC -> Public Subnet -> Enable -> HTTP & HTTPS & SSH (Any).
-- EC2: Private-EC2 (Ubuntu Server 20.04 LTS (HVM), SSD Volume Type) -> MY-VPC -> Private Subnet-1  -> Disable -> SSH .
+- EC2: Public-EC2 (Ubuntu Server 18.04 LTS (HVM), SSD Volume Type) -> MY-VPC -> Public Subnet -> Enable -> HTTP & HTTPS & SSH (Any).
+- EC2: Private-EC2 (Ubuntu Server 18.04 LTS (HVM), SSD Volume Type) -> MY-VPC -> Private Subnet-1  -> Disable -> SSH .
 
 
 - Subnet Group: DB-SUB , MY-VPC, Private-Subnet-2(10.0.2.0/24), Private-1(10.0.0.0/24)
@@ -20,12 +20,6 @@ steps to deploy
 
 - mysql -h database-1.cnxvayuv7sjy.ap-northeast-2.rds.amazonaws.com   -P 3306 -u admin -p
 
-
- FIRST CHECK IF TENSORFLOW IS INSTALLING OR NOT
-if EC2 == Amazon Linux 2 AMI (HVM), SSD Volume Type :
-  pip install --no-cache-dir tensorflow
-if EC2 == Ubuntu Server 20.04 LTS (HVM):
-  Not Working
 
 - ssh into Public-ec2
 - sudo su -
@@ -48,31 +42,6 @@ if EC2 == Ubuntu Server 20.04 LTS (HVM):
 
 - mysql -h database-1.cnxvayuv7sjy.ap-northeast-2.rds.amazonaws.com   -P 3306 -u admin -p
 - source build/schema.sql
-
-
-
-
-flask run --host=0.0.0.0 --port=80
-
-https://www.itsupportwale.com/blog/how-to-upgrade-to-python-3-9-0-on-ubuntu-18-04-lts/
-- pip3 install Cython
-sudo apt-get install python3.7-dev
-
-
-
-FINAL
-- sudo yum install mysql-server
-
-- sudo pip3 install --no-cache-dir  tensorflow
-https://blog.devgenius.io/host-your-python-flask-on-aws-ec2-91735aa7127a
-
-
-Ubunt-18
-
-pip3 install --upgrade pip
-pip3 install --no-cache-dir tensorflow
-
-
 
 
 
@@ -101,7 +70,34 @@ Ubuntu-18.04
 
 
 
+MIGHT REQ.
+flask run --host=0.0.0.0 --port=80
 
+https://www.itsupportwale.com/blog/how-to-upgrade-to-python-3-9-0-on-ubuntu-18-04-lts/
+- pip3 install Cython
+sudo apt-get install python3.7-dev
+
+
+
+FINAL
+- sudo yum install mysql-server
+
+- sudo pip3 install --no-cache-dir  tensorflow
+https://blog.devgenius.io/host-your-python-flask-on-aws-ec2-91735aa7127a
+
+
+Ubunt-18
+
+pip3 install --upgrade pip
+pip3 install --no-cache-dir tensorflow
+
+
+
+ FIRST CHECK IF TENSORFLOW IS INSTALLING OR NOT
+if EC2 == Amazon Linux 2 AMI (HVM), SSD Volume Type :
+  pip install --no-cache-dir tensorflow
+if EC2 == Ubuntu Server 20.04 LTS (HVM):
+  Not Working
 
 
 
