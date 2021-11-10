@@ -3,19 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <div class="container-fluid">
-  <a class="navbar-brand" href="{{url_for('home')}}">AWSome {{username}}</a>
+<a class="navbar-brand" href="{{url_for('home')}}">AWSome {{username}}</a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav">
 <li class="nav-item">
-  <a class="nav-link" href="{{url_for('logout')}}">logout</a>
+<a class="nav-link" href="{{url_for('logout')}}">logout</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="https://github.com/karthikeyanrathore/AWSome">github</a>
@@ -38,18 +36,12 @@
 {% if counter == 1 %}
 <h1 class="text-center"><strong>Model Predicted: Happy Playlist</strong> </h1>
 {% endif %}
-
-
 {% if counter == 2 %}
 <h1 class="text-center"> <strong>Model Predicted: Sad Playlist</strong> </h1>
 {% endif %}
-
 {% if counter == 3 %}
 <h1 class="text-center"> <strong>Model Predicted: Neutral Playlist</strong> </h1>
 {% endif %}
-
-
-
 <br>
 {% for x in data['items'] %}
 {% if x['track']['album']['artists'] | length == 1 %}
@@ -63,10 +55,7 @@
 {% endif %}
 <td class="table-active"><a href="https://open.spotify.com/track/{{ x['track']['id']}}" class="link-primary">Song Link</a></td>
 </tr>
-
 {% endfor %}
 </div>
 </body>
 </html>
-
-
