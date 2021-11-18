@@ -30,7 +30,6 @@ def connection():
 def index():
   return render_template("index.html")
 
-# register user to database
 @app.route('/register', methods=['GET', 'POST'])
 def register():
   db , cursor = connection()
@@ -42,19 +41,16 @@ def register():
       error = "username is required"
     elif not password:
       error = "password is required"
-    # check if user exists
     elif db.exists(cursor, username):
       error = "username already exists in the database"
     if error is None:
       if db.insert(username, password, cursor):
         return redirect(url_for("login"))
-      # rollback 
       else:
         error = "fail"
   print(error)
   return render_template("register.html", error=error)
 
-# authentication. 
 @app.route("/login" , methods=['POST' ,'GET'])
 def login():
   db , cursor = connection()
@@ -69,7 +65,6 @@ def login():
       error = "password is required"
     if error is None:
       ex, user = db.auth(cursor , username, password)
-      # success auth
       if(ex == 1):
         session.clear()
         session['user_id'] = str(user[0])
@@ -84,7 +79,6 @@ def login():
     return redirect(url_for("home"))
   return render_template('login.html', error=error)
 
-# user_id in session dict.
 @app.route("/logout")
 def logout():
   session.pop("user_id" , None)
@@ -97,21 +91,19 @@ def home():
     image = request.files['img']
     path = os.path.join(app.config['UPLOAD_FOLDER'], image.filename)
     image.save(path)
-    emo = Predict(path).get_emotion()
+    emo, a = Predict(path).get()
     if emo is None:
-      return redirect(url_for("get_neutral"))
-    print(emo)
-    if int(emo) == 3:
+      return "invalid image"
+    if int(emo) == 1:
       return redirect(url_for("get_happy"))
-    elif int(emo) == 4 or int(emo) == 0:
+    elif int(emo) == 3:
       return redirect(url_for("get_sad"))
-    elif int(emo) == 6:
+    elif int(emo) == 0:
       return redirect(url_for("get_neutral"))
     else:
-      return "other emotion %d" % (int(emo))
+      return "other emotion %s" % (a[emo])
   if "user_id" in session:
     id = session['user_id']
-    # get user-name from database
     username = db.get_username(cursor, id)
     print(username)
     if username is not None:
@@ -127,12 +119,6 @@ def get_happy():
     counter=1
     f = open("build/data/happy_data.json")
     data = json.load(f)
-    for x in data['items']:
-      for i in x['track']['album']['artists']:
-        pass
-        # artist name print(i['name'])
-      # song name print(x['track']['name'])
-    # song_id print(x['track']['id'])
     return render_template("tracks.html", data=data, counter=counter)
   else:
     return redirect(url_for("login"))
@@ -143,15 +129,6 @@ def get_sad():
     counter=2
     f = open("build/data/sad_data.json")
     data = json.load(f)
-    for x in data['items']:
-      for i in x['track']['album']['artists']:
-        pass
-      #print(x)
-        # artist name print(i['name'])
-      # song name print(x['track']['name'])
-    # song_id print(x['track']['id'])
-    
-      #print(x['track']['id'])
     return render_template("tracks.html", data=data, counter=counter)
   else:
     return redirect(url_for("login"))
@@ -162,14 +139,6 @@ def get_neutral():
     counter=3
     f = open("build/data/neutral_data.json")
     data = json.load(f)
-    for x in data['items']:
-      #print(len(x['track']['album']['artists']))
-      #print(" ")
-      pass
-        # artist name print(i['name'])
-      # song name print(x['track']['name'])
-    # song_id print(x['track']['id'])
-    
     return render_template("tracks.html", data=data, counter=counter)
   else:
     return redirect(url_for("login"))
