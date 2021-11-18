@@ -99,11 +99,11 @@ def home():
     image.save(path)
     emo = Predict(path).get_emotion()
     if emo is None:
-      return "valid image is required"
+      return redirect(url_for("get_neutral"))
     print(emo)
     if int(emo) == 3:
       return redirect(url_for("get_happy"))
-    elif int(emo) == 4:
+    elif int(emo) == 4 or int(emo) == 0:
       return redirect(url_for("get_sad"))
     elif int(emo) == 6:
       return redirect(url_for("get_neutral"))
