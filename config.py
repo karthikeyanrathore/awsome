@@ -1,8 +1,8 @@
 import os
 
 # database-rds
-LOCALHOST = "localhost"
-USER = "root"
+LOCALHOST = "localhost" # endpoint
+USER = "root" # admin
 PORT = 3306
 DATABASE = "data"
 PASSWORD = ""

@@ -1,4 +1,4 @@
-pymsql
-openv-python
+pymysql
+opencv-python
 tensorflow
 flask

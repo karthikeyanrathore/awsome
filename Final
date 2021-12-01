@@ -43,7 +43,7 @@ steps to deploy
 - mysql -h database-1.cnxvayuv7sjy.ap-northeast-2.rds.amazonaws.com   -P 3306 -u admin -p
 - source build/schema.sql
 
-
+mysql -h database-1.cnxvayuv7sjy.ap-northeast-2.rds.amazonaws.com -P 3306 -u admin -p
 
 Ubuntu-18.04
 - sudo apt-get update && sudo apt-get dist-upgrade
@@ -68,6 +68,7 @@ Ubuntu-18.04
 - make changes config file for database
 - sudo ./run.sh
 
+- sudo apt-get install ffmpeg libsm6 libxext6  -y (VERY IMPORTANT FOR OPEN CV) (INCASE OF ERROR) 
 
 
 MIGHT REQ.
