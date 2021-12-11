@@ -2,3 +2,4 @@ build.sock
 build/vnv
 __pycache__
 build/__pycache__
+.DS_Store 
