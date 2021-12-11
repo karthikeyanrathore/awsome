@@ -68,6 +68,7 @@ Ubuntu-18.04
 - make changes config file for database
 - sudo ./run.sh
 
+- sudo apt-get install python3.8-dev (You Might Req)
 - sudo apt-get install ffmpeg libsm6 libxext6  -y (VERY IMPORTANT FOR OPEN CV) (INCASE OF ERROR) 
 
 
