@@ -4,3 +4,5 @@ __pycache__
 build/__pycache__
 .DS_Store 
 .ipynb_checkpoints/
+docs/.ipynb_checkpoints/
+docs/.DS_Store
