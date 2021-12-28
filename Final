@@ -19,6 +19,7 @@ steps to deploy
 - <Database_name>-> security group -> inbound rules -> edit -> MYSQL/Aurora;Protocol:TCP;Range:3306;Source:0.0.0.0/0.
 
 - mysql -h database-1.cnxvayuv7sjy.ap-northeast-2.rds.amazonaws.com   -P 3306 -u admin -p
+- mysql -h database-1.cph0khyvfr42.ap-southeast-2.rds.amazonaws.com  -P 3306 -u admin -p
 
 
 - ssh into Public-ec2
