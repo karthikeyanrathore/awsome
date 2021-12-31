@@ -12,7 +12,7 @@ class Predict():
     f.close()
     model = model_from_json(m)
     model.load_weights('build/model/fer.h5')
-    classifier = cv2.CascadeClassifier('build/xml/haarcascade_frontalface_default.xml')
+    classifier = cv2.CascadeClassifier('build/model/haarcascade_frontalface_default.xml')
     img = cv2.imread(self.img)
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces_detected = classifier.detectMultiScale(gray_img, 1.18, 5)
