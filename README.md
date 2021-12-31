@@ -12,3 +12,8 @@ install: INSTALL
 chmod +x run.sh
 sudo ./run.sh
 ```
+
+## Authors
+- Asfahan shah
+- Karthikeyan Rathore
+
