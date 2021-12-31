@@ -1,7 +1,6 @@
 awsome
 ======
 
-
 steps to deploy
 - VPC: create MY-VPC (10.0.0.0/16)
 - Subnet: Private-1(10.0.0.0/24) Private-2(10.0.2.0/24) Public-1(10.0.3.0/24). Location:  P2(south-a), P1(south-b) IMP: two different Location. 
@@ -22,6 +21,13 @@ steps to deploy
 - <Database_name>-> security group -> inbound rules -> edit -> MYSQL/Aurora;Protocol:TCP;Range:3306;Source:0.0.0.0/0.
 
 - mysql -h database-1.cnxvayuv7sjy.ap-northeast-2.rds.amazonaws.com   -P 3306 -u admin -p
+
+''' NEW STEPS '''
+Location : SYDNEY
+private ec2 :create image of public ec2
+rds creation (enable autoscalling ON, automated backups ON , auto minor version upgrade ON
+launch private 
+vpc endpoint
 
 
 - ssh into Public-ec2
