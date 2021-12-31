@@ -8,3 +8,4 @@ docs/.ipynb_checkpoints/
 docs/.DS_Store
 build/.cache 
 docs/.cache
+.gitignore
