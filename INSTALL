@@ -1,0 +1,5 @@
+python3.8
+pymysql
+tensorflow
+opencv-python
+flask
