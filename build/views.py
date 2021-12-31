@@ -10,7 +10,7 @@ from flask import render_template
 from flask import session 
 from flask import redirect, url_for 
 
-UPLOAD_FOLDER = 'docs/images'
+UPLOAD_FOLDER = 'build/images'
 LOCALHOST = config.LOCALHOST
 USER = config.USER
 PORT = config.PORT
