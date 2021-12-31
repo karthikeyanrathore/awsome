@@ -13,7 +13,7 @@ chmod +x run.sh
 sudo ./run.sh
 ```
 
-## Authors
+## authors
 - Asfahan shah
 - Karthikeyan Rathore
 
