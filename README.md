@@ -7,10 +7,8 @@ Accuracy: 67%
 
 ## run
 ```
-deploy on AWS: OPEN
-install: INSTALL
-chmod +x run.sh
-sudo ./run.sh
+deploy on AWS && run for PRO: OPEN
+local Mac OSX: INSTALL && chmod +x run.sh && LOCAL=1 ./run.sh 
 ```
 
 ## authors

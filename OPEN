@@ -35,6 +35,6 @@ SSH
 - exit
 
 - makes changes inside config.py
-- ./run.sh
+- PRO=1 ./run.sh
 
 

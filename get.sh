@@ -27,9 +27,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
 
   printf "installing .... \n"
-  yes | pip3 install pymysql opencv-python flask 
+  yes | pip3 install pymysql opencv-python flask
 
+  printf "git clone https://github.com/karthikeyanrathore/AWSome"
+  git clone https://github.com/karthikeyanrathore/AWSome
   exit
+
 else
   printf "only works under linux-gnu Ubuntu-18.04 \n"
 fi
