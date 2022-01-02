@@ -15,6 +15,7 @@ VPC
 EC2
 - EC2: Public-EC2 (Ubuntu Server 18.04 LTS (HVM), SSD Volume Type) -> MY-VPC -> Public Subnet -> Enable -> HTTP & HTTPS & SSH (Any).
 - ssh into Public-EC2.
+- git clone https://github.com/karthikeyanrathore/AWSome
 - chmod +x get.sh && ./get.sh
 - create image of Public-ec2. (AMI)
 - Launch image -> Private EC2 -> MY-VPC -> Private Subnet -> Disable -> SSH (any).
