@@ -7,7 +7,7 @@ fi
 
 if [[ "$OSTYPE" == "darwin"* ]]  && [[ $LOCAL == 1 ]]; then
   source ~/.bash_profile
-  conda activate
+  conda activate batman
   export FLASK_APP=build/__init__.py
   export FLASK_ENV=development
   export FLASK_DEBUG=1
