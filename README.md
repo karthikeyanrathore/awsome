@@ -12,6 +12,6 @@ local Mac OSX: INSTALL && chmod +x run.sh && LOCAL=1 ./run.sh
 ```
 
 ## authors
-- Asfahan shah
+- [Asfahan shah](https://github.com/a-shah1200)
 - Karthikeyan Rathore
 
